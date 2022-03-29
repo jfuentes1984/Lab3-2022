@@ -9,7 +9,7 @@ public class User
     public string? Name { get; set; }
     [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Your Email is not valid.")]
     public string? Email { get; set; }
-
+    [Range(0, int.MaxValue, ErrorMessage = "Please enter valid integer Number")]
     public int? StreetNumber { get; set; }
     public string? StreetName { get; set; }
 

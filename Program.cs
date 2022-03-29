@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -10,6 +11,9 @@ var serverVersion = new MariaDbServerVersion(builder.Configuration.GetValue<stri
 
 builder.Services.AddDbContext<DBContext>(options =>
      options.UseLazyLoadingProxies().UseMySql(connectionString, serverVersion));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+.AddEntityFrameworkStores<DBContext>();
 
 var app = builder.Build();
 
@@ -25,7 +29,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
