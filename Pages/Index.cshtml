@@ -6,8 +6,24 @@
 @{
     ViewData["Title"] = "Home page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome @Model.UserEmail!</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome @Model.UserEmail!</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <div class="text-under-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ullam, at et error
+            soluta repellat ut hic
+            beatae distinctio tempore nemo possimus odit, suscipit doloribus sed veniam laudantium debitis illum explicabo.
+            Pariatur voluptatem aliquam ratione quasi ea eveniet accusamus accusantium provident impedit eum ipsa
+            repudiandae deserunt, ad nulla, fugiat exercitationem?</div>
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome! </h1>
+        <p> You must <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a> or <a
+            class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a> first
+            to view site!</p>
+    </div>
+}
