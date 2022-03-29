@@ -7,7 +7,7 @@ public class User
 {
     public int UserId { get; set; }
     public string? Name { get; set; }
-
+    [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Your Email is not valid.")]
     public string? Email { get; set; }
 
     public int? StreetNumber { get; set; }
