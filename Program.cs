@@ -1,3 +1,4 @@
+global using Lab3_2022.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
@@ -12,7 +13,7 @@ var serverVersion = new MariaDbServerVersion(builder.Configuration.GetValue<stri
 builder.Services.AddDbContext<DBContext>(options =>
      options.UseLazyLoadingProxies().UseMySql(connectionString, serverVersion));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<SiteUser>(options => options.SignIn.RequireConfirmedAccount = true)
 .AddEntityFrameworkStores<DBContext>();
 
 var app = builder.Build();

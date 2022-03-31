@@ -1,15 +1,15 @@
 ﻿@page
 @model IndexModel
 @using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<SiteUser> SignInManager
+@inject UserManager<SiteUser> UserManager
 @{
     ViewData["Title"] = "Home page";
 }
 @if (SignInManager.IsSignedIn(User))
 {
     <div class="text-center">
-        <h1 class="display-4">Welcome @Model.UserEmail!</h1>
+        <h1 class="display-4">Welcome</h1>
         <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
         <div class="text-under-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ullam, at et error
             soluta repellat ut hic

@@ -15,14 +15,14 @@ public class IndexModel : PageModel
     private readonly ILogger<IndexModel> _logger;
     private readonly DBContext _context;
     [BindProperty]
-    public User? UserInfo { get; set; }
+    public SiteUser UserInfo { get; set; }
 
     public IndexModel(ILogger<IndexModel> logger, DBContext context)
     {
         _logger = logger;
         _context = context;
     }
-    public string? UserEmail { get; set; }
+    public string UserEmail { get; set; }
 
     public IList<Lab3_2022.Model.Product> Product { get; set; }
 
